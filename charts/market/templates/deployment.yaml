@@ -65,6 +65,8 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.jwt.existingSecret }}
                   key: {{ .Values.jwt.secretKey }}
+            - name: KRATOS_PUBLIC_ENDPOINT
+              value: {{ .Values.kratos_url }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
