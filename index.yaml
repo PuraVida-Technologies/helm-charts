@@ -3,6 +3,16 @@ entries:
   market:
   - apiVersion: v2
     appVersion: 0.1.5
+    created: "2023-01-09T15:48:32.002538837Z"
+    description: Pura Vida Market Backend
+    digest: 9b99666cb91717309885dc45bffbb8d7b2862bd18f31df40817e5f80323c8ac0
+    name: market
+    type: application
+    urls:
+    - https://github.com/PuraVida-Technologies/helm-charts/releases/download/market-0.1.4/market-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 0.1.5
     created: "2023-01-09T15:36:25.34849109Z"
     description: Pura Vida Market Backend
     digest: 599bfe322c08d616a077d5407536afcee266eb07f1d3c0d150a57e40b965cb9e
@@ -41,4 +51,4 @@ entries:
     urls:
     - https://github.com/PuraVida-Technologies/helm-charts/releases/download/market-0.0.2/market-0.0.2.tgz
     version: 0.0.2
-generated: "2023-01-09T15:36:25.348512191Z"
+generated: "2023-01-09T15:48:32.002557938Z"
