@@ -55,16 +55,61 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
+            - name: PORT
+              value: {{ .Values.service.port }}
+            - name: THROTTLE_TTL
+              value: 6
+            - name: THROTTLE_LIMIT
+              value: 1
             - name: DATABASE_HOST
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.mongodb.auth.existingSecret }}
                   key: {{ .Values.mongodb.auth.secretHostKey }}
+            - name: GCP_PROJECT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.gcs.existingSecret }}
+                  key: project_id
+            - name: GCP_BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.gcs.existingSecret }}
+                  key: bucket_name
+            - name: GCP_CLIENT_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.gcs.existingSecret }}
+                  key: service_account
+            - name: GCP_PRIVATE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.gcs.existingSecret }}
+                  key: service_account_key
+            - name: GOOGLE_MAPS_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.google_maps.existingSecret }}
+                  key: key
+            - name: JWT_ISSUER
+              value: {{ .Values.jwt.issuer }}
             - name: JWT_SECRET_KEY
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.jwt.existingSecret }}
                   key: {{ .Values.jwt.secretKey }}
+            - name: JWT_LIFE_TIME
+              value: {{ .Values.jwt.lifetime }}
+            - name: JWT_ALGORITHM
+              value: {{ .Values.jwt.algorithm }}
+            - name: UPLOAD_FILE_MAX_FILE_SIZE
+              value: {{ .Values.upload.max_filesize }}
+            - name: UPLOAD_FILE_MAX_FILE_NUMBER
+              value: {{ .Values.upload.limit }}
+            - name: HASH_SALT_ROUNDS
+              value: {{ .Values.hash.salt_rounds }}
+            - name: HASH_PEPPER
+              value: {{ .Values.hash.pepper }}
             - name: KRATOS_PUBLIC_ENDPOINT
               value: {{ .Values.kratos_url }}
       {{- with .Values.nodeSelector }}

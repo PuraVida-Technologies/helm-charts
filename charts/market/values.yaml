@@ -17,19 +17,43 @@ fullnameOverride: ""
 
 kratos_url: "http://galoy-kratos-public"
 
+upload:
+  max_filesize: 30822400
+  limit: 20
+
 secrets:
   create: true
 
 jwt:
   existingSecret: market-jwt
   secretKey: key
+  issuer: PuraVida
   key: CHANGE-ME-I-AM-INSECURE
+  lifetime: 2d
+  algorithm: HS512
 
 mongodb:
   auth:
     existingSecret: market-mongo
     secretHostKey: dsn
     dsn: DATA-SOURCE-NAME
+
+## Details for google cloud storage
+gcs:
+  existingSecret: market-gcs
+  project_id: "your-project-id"
+  bucket_name: "bucket-name"
+  service_account:
+    name: "sa-email"
+    key: "sa-private-key"
+
+google_maps:
+  existingSecret: market-maps
+  access_key: "google_maps_access_key"
+
+hash:
+  salt_rounds: 10
+  pepper: "this is for testing"
 
 serviceAccount:
   # Specifies whether a service account should be created
