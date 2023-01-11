@@ -18,8 +18,8 @@ fullnameOverride: ""
 kratos_url: "http://galoy-kratos-public"
 
 upload:
-  max_filesize: 30822400
-  limit: 20
+  max_filesize: "30822400"
+  limit: "20"
 
 secrets:
   create: true
@@ -52,7 +52,7 @@ google_maps:
   access_key: "google_maps_access_key"
 
 hash:
-  salt_rounds: 10
+  salt_rounds: "10"
   pepper: "this is for testing"
 
 serviceAccount:
