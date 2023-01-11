@@ -58,9 +58,9 @@ spec:
             - name: PORT
               value: {{ .Values.service.port }}
             - name: THROTTLE_TTL
-              value: 6
+              value: "6"
             - name: THROTTLE_LIMIT
-              value: 1
+              value: "1"
             - name: DATABASE_HOST
               valueFrom:
                 secretKeyRef:
