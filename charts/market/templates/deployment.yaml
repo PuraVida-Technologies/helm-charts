@@ -58,9 +58,9 @@ spec:
             - name: PORT
               value: {{ .Values.service.port }}
             - name: THROTTLE_TTL
-              value: "6"
+              value: {{ 6 | quote }}
             - name: THROTTLE_LIMIT
-              value: "1"
+              value: {{ 1 | quote }}
             - name: DATABASE_HOST
               valueFrom:
                 secretKeyRef:
@@ -103,11 +103,11 @@ spec:
             - name: JWT_ALGORITHM
               value: {{ .Values.jwt.algorithm }}
             - name: UPLOAD_FILE_MAX_FILE_SIZE
-              value: {{ .Values.upload.max_filesize }}
+              value: {{ .Values.upload.max_filesize | quote }}
             - name: UPLOAD_FILE_MAX_FILE_NUMBER
-              value: {{ .Values.upload.limit }}
+              value: {{ .Values.upload.limit | quote }}
             - name: HASH_SALT_ROUNDS
-              value: {{ .Values.hash.salt_rounds }}
+              value: {{ .Values.hash.salt_rounds | quote }}
             - name: HASH_PEPPER
               value: {{ .Values.hash.pepper }}
             - name: KRATOS_PUBLIC_ENDPOINT
