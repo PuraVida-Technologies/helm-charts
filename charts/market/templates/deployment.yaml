@@ -45,13 +45,17 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 10
             httpGet:
-              path: /graphql
+              path: /livez
               port: http
-          readinessProbe:
-            httpGet:
-              path: /graphql
-              port: http
+          # readinessProbe:
+          #   initialDelaySeconds: 5
+          #   periodSeconds: 5
+          #   httpGet:
+          #     path: /livez
+          #     port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
