@@ -14,6 +14,34 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up yq
+        uses: frenck/action-setup-yq@v1.0.2
+  
+      - name: Get Chart Versions
+        run: |
+          VMARKET=$(yq '.version' 'charts/market/Chart.yaml')
+          echo "MARKET_CHART_VERSION=$VMARKET" >> $GITHUB_ENV
+          VWEB=$(yq '.version' 'charts/market-web/Chart.yaml')
+          echo "WEB_CHART_VERSION=$VWEB" >> $GITHUB_ENV
+          VADMIN=$(yq '.version' 'charts/market-admin/Chart.yaml')
+          echo "ADMIN_CHART_VERSION=$VADMIN" >> $GITHUB_ENV
+      
+      - name: Delete folders not poised for release
+        id: release
+        run: |
+          if [[ "$MARKET_CHART_VERSION" == *"-dev"* ]] || [[ $(git tag -l "market-$MARKET_CHART_VERSION") ]]; then
+              echo "Deleting charts/market because it's dev or release already exists."
+              rm -rf charts/market
+          fi
+          if [[ "$ADMIN_CHART_VERSION" == *"-dev"* ]] || [[ $(git tag -l "market-admin-$ADMIN_CHART_VERSION") ]]; then
+              echo "Deleting charts/market-admin because it's dev or release already exists."
+              rm -rf charts/market-admin
+          fi
+          if [[ "$WEB_CHART_VERSION" == *"-dev"* ]] || [[ $(git tag -l "market-web-$WEB_CHART_VERSION") ]]; then
+              echo "Deleting charts/market-web because it's dev or release already exists."
+              rm -rf charts/market-web
+          fi
+
       - name: Configure Git
         run: |
           git config user.name puravida-bot
