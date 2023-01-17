@@ -151,4 +151,15 @@ entries:
     urls:
     - https://github.com/PuraVida-Technologies/helm-charts/releases/download/market-0.0.0-dev/market-0.0.0-dev.tgz
     version: 0.0.0-dev
-generated: "2023-01-17T13:07:26.079578664Z"
+  market-web:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2023-01-17T13:23:13.015965073Z"
+    description: Pura Vida market website
+    digest: cfd80b5b42e6c3ebbf592223aa59d61cbb419dec97eb9e9a5fae86bcdd0d241f
+    name: market-web
+    type: application
+    urls:
+    - https://github.com/PuraVida-Technologies/helm-charts/releases/download/market-web-0.0.1/market-web-0.0.1.tgz
+    version: 0.0.1
+generated: "2023-01-17T13:23:13.016009073Z"
