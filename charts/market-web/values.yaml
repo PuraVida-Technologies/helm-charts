@@ -16,6 +16,10 @@ nameOverride: ""
 fullnameOverride: ""
 # The market api endpoint
 endpoint_base_url: "http://localhost:3001/graphql"
+#
+secrets:
+  create: true
+#
 google_maps:
   existingSecret: market-web-maps
   access_key: "google_maps_access_key"
