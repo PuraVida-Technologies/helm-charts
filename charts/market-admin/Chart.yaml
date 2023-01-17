@@ -3,7 +3,7 @@ name: market-admin
 description: Pura Vida market website
 type: application
 #
-version: 0.0.1
+version: 0.0.1-dev
 #
 appVersion: "0.0.1"
 #
