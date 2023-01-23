@@ -3,7 +3,7 @@ name: market
 description: Pura Vida Market Backend
 type: application
 #
-version: 0.0.8-dev
+version: 0.0.9
 #
 appVersion: "0.0.9"
 #
