@@ -97,6 +97,8 @@ spec:
                   key: key
             - name: JWT_ISSUER
               value: {{ .Values.jwt.issuer }}
+            - name: JWT_AUDIENCE
+              value: {{ .Values.jwt.audience }}
             - name: JWT_SECRET_KEY
               valueFrom:
                 secretKeyRef:

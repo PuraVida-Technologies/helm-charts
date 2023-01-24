@@ -28,6 +28,7 @@ jwt:
   existingSecret: market-jwt
   secretKey: key
   issuer: PuraVida
+  audience: PuraVida
   key: CHANGE-ME-I-AM-INSECURE
   lifetime: 2d
   algorithm: HS512
