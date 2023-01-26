@@ -50,23 +50,23 @@ spec:
             httpGet:
               path: /api/livez
               port: http
-          # readinessProbe:
-          #   initialDelaySeconds: 5
-          #   periodSeconds: 5
-          #   httpGet:
-          #     path: /livez
-          #     port: http
+          readinessProbe:
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            httpGet:
+              path: /api/livez
+              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             - name: PORT
               value: {{ .Values.service.port | quote }}
-            - name: GOOGLE_MAPS_ACCESS_KEY
+            - name: NEXT_PUBLIC_MAP_API_KEY
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.google_maps.existingSecret }}
                   key: key
-            - name: ENDPOINT_BASE_URL
+            - name: NEXT_PUBLIC_BASE_URL
               value: {{ .Values.endpoint_base_url }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
