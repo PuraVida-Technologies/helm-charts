@@ -9,7 +9,7 @@ image:
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
-  digest: "sha256:81d25c4a147bc19d979d0b6767c6a38d5e9fe040d29b246aaf724e7623694ac3"
+  digest: "sha256:adadf827c3ee7f3070999b20e4ada1b36afa81867cd459bf814f6825cd7e1062"
 #
 imagePullSecrets: []
 nameOverride: ""
